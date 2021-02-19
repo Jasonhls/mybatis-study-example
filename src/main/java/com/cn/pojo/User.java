@@ -13,6 +13,7 @@ public class User {
     private Integer age;
     private String sex;
     private Date createdTime;
+    private String createdUser;
 
     public User() {
     }
@@ -63,6 +64,14 @@ public class User {
         this.createdTime = createdTime;
     }
 
+    public String getCreatedUser() {
+        return createdUser;
+    }
+
+    public void setCreatedUser(String createdUser) {
+        this.createdUser = createdUser;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -71,6 +80,7 @@ public class User {
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
                 ", createdTime=" + createdTime +
+                ", createdUser=" + createdUser +
                 '}';
     }
 }

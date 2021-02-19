@@ -19,6 +19,9 @@ mybatis的配置文件中，标签是有配置顺序的，必须按照properties
         <typeHandler handler="com.cn.handler.MyTypeHandler"/>
     </typeHandlers>
 
+    <!--配置自定义的ObjectFactory-->
+    <objectFactory type="com.cn.objectFactory.CustomObjectFactory"/>
+
     <!--配置自定义的ObjectWrapperFactory-->
     <objectWrapperFactory type="com.cn.wrapper.CustomWrapperFactory"/>
 

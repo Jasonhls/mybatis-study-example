@@ -3,13 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.mapper.UserMapper">
 
-    <sql id="userColumn">id, name, age, sex, created_time</sql>
+    <sql id="userColumn">id, name, age, sex, created_time, created_user</sql>
 
     <resultMap id="userResultMap" type="com.cn.pojo.User">
         <id column="id" property="id"/>
         <result column="name" property="name" jdbcType="VARCHAR" typeHandler="com.cn.handler.MyTypeHandler"/>
         <result column="age" property="age"/>
         <result column="sex" property="sex"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="created_user" property="createdUser"/>
     </resultMap>
 
     <select id="getUser" parameterType="integer" resultMap="userResultMap">

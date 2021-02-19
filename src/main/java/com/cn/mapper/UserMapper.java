@@ -14,7 +14,7 @@ public interface UserMapper {
 
     User getUser(Integer id);
 
-    void addUser(@Param("user") User user);
+    void addUser(User user);
 
     Map getUserMap();
 }
