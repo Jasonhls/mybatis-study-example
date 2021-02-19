@@ -1,5 +1,6 @@
 package com.cn;
 
+import com.cn.mapper.UserMapper;
 import com.cn.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -43,6 +44,12 @@ public class MybatisHelloWorld {
             /*返回map集合，以数据库中的列名id作为key*/
             Map<Object, Object> objectObjectMap = session.selectMap("com.cn.mapper.UserMapper.getUserMap", "id");
             System.out.println(objectObjectMap);
+
+            User user = session.selectOne("com.cn.mapper.UserMapper.getUser", 27);
+            System.out.println("第一种方式：" + user.getName() + user.getAge() + user.getSex());
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            Map userMap = mapper.getUserMap();
+            System.out.println("第二种方式：" + userMap);
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
