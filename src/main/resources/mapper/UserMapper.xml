@@ -5,10 +5,21 @@
 
     <sql id="userColumn">id, name, age, sex</sql>
 
-    <select id="getUser" parameterType="integer" resultType="com.cn.pojo.User">
+    <resultMap id="userResultMap" type="com.cn.pojo.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name" jdbcType="VARCHAR" typeHandler="com.cn.handler.MyTypeHandler"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+    </resultMap>
+
+    <select id="getUser" parameterType="integer" resultMap="userResultMap">
         select <include refid="userColumn"/>
         from user where id = #{id}
     </select>
+
+    <insert id="addUser" parameterType="com.cn.pojo.User">
+        insert into user(name, age, sex) values (#{name}, #{age}, #{sex})
+    </insert>
 
     <!--<resultMap id="detailedBlogResultMap" type="Blog">
         <constructor>

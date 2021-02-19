@@ -16,7 +16,7 @@ import java.io.Reader;
  **/
 public class MybatisHelloWorld {
     public static void main(String[] args) {
-        String resource = "mybatis/Configuration.xml";
+        String resource = "mybatis/mybatis-config.xml";
         Reader reader;
         try {
             reader = Resources.getResourceAsReader(resource);
@@ -24,6 +24,10 @@ public class MybatisHelloWorld {
             SqlSession session = sqlSessionFactory.openSession();
             User user = session.selectOne("com.cn.mapper.UserMapper.getUser", 19);
             System.out.println(user.toString());
+
+            User u = new User("smith", 29, "男");
+            int result = session.insert("com.cn.mapper.UserMapper.addUser", u);
+            System.out.println("结果为：" + result);
         } catch (IOException e) {
             e.printStackTrace();
         }

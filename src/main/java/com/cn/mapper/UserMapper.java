@@ -1,6 +1,7 @@
 package com.cn.mapper;
 
 import com.cn.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @description:
@@ -10,4 +11,5 @@ import com.cn.pojo.User;
 public interface UserMapper {
 
     User getUser(Integer id);
+    void addUser(@Param("user") User user);
 }

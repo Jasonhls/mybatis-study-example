@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--
+mybatis的配置文件中，标签是有配置顺序的，必须按照properties，settings，typeAliases，typeHandlers，objectFactory，objectWrapperFactory，reflectorFactory，plugins，environments，databaseIdProvider，mappers这个顺序，
+否则会报如下的错误：
+元素类型为 "configuration" 的内容必须匹配 "(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)"。
+-->
 <configuration>
+    <typeHandlers>
+        <typeHandler handler="com.cn.handler.MyTypeHandler"/>
+    </typeHandlers>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
