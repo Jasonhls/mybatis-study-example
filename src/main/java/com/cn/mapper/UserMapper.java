@@ -3,6 +3,8 @@ package com.cn.mapper;
 import com.cn.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Map;
+
 /**
  * @description:
  * @author: helisen
@@ -11,5 +13,8 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper {
 
     User getUser(Integer id);
+
     void addUser(@Param("user") User user);
+
+    Map getUserMap();
 }

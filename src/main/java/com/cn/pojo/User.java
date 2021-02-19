@@ -1,5 +1,7 @@
 package com.cn.pojo;
 
+import java.util.Date;
+
 /**
  * @description:
  * @author: helisen
@@ -10,6 +12,7 @@ public class User {
     private String name;
     private Integer age;
     private String sex;
+    private Date createdTime;
 
     public User() {
     }
@@ -52,6 +55,14 @@ public class User {
         this.sex = sex;
     }
 
+    public Date getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -59,6 +70,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
+                ", createdTime=" + createdTime +
                 '}';
     }
 }
