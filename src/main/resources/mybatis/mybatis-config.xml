@@ -30,6 +30,7 @@ mybatis的配置文件中，标签是有配置顺序的，必须按照properties
     <!--配置自定义的ObjectWrapperFactory-->
     <objectWrapperFactory type="com.cn.wrapper.CustomWrapperFactory"/>
 
+    <!--配置自定义插件-->
     <plugins>
         <plugin interceptor="com.cn.plugins.ExamplePlugin">
             <property name="someProperty" value="100"/>
