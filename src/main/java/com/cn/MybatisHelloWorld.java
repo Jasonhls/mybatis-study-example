@@ -50,11 +50,11 @@ public class MybatisHelloWorld {
              * 第一种，调用org.apache.ibatis.session.SqlSession的crud方法比如selectList/selectOne传递完整的语句id直接执行；
              * 第二种，先调用SqlSession的getMapper()方法得到mapper接口的一个实现，然后调用具体的方法。除非早期，现在实际开发中，我们一般采用这种方式。
              */
-            User user = session.selectOne("com.cn.mapper.UserMapper.getUser", 27);
+            /*User user = session.selectOne("com.cn.mapper.UserMapper.getUser", 27);
             System.out.println("第一种方式：" + user.getName() + user.getAge() + user.getSex());
             UserMapper mapper = session.getMapper(UserMapper.class);
             Map userMap = mapper.getUserMap();
-            System.out.println("第二种方式：" + userMap);
+            System.out.println("第二种方式：" + userMap);*/
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
