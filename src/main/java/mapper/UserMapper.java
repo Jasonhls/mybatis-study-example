@@ -1,7 +1,6 @@
-package com.cn.mapper;
+package mapper;
 
 import com.cn.pojo.User;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.Map;
 

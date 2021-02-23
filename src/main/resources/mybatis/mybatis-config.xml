@@ -49,8 +49,35 @@ mybatis的配置文件中，标签是有配置顺序的，必须按照properties
         </environment>
     </environments>
 
-    <mappers>
+    <!--
+    <mappers>标签配置的是我们的映射器，也就是Mapper.xml的路径。这里配置的目的是让MyBatis在启动的时候去扫描这些映射器，创建映射关系。
+    有四种指定Mapper文件的方式：
+    1.使用相对类路径的资源引用（resource）
+    2.使用完全限定资源定位符（绝对路径）（URL）
+    3.使用映射器接口实现类的完全限定类名 （class）
+    4.将包内的映射器接口实现全部注册为映射器（最常用， package）
+    -->
+    <!--使用相对类路径的资源引用（resource）-->
+    <!--<mappers>
         <mapper resource="mapper/UserMapper.xml"/>
+    </mappers>-->
+    <!--使用完全限定资源定位符（URL）-->
+    <!--<mappers>
+        <mapper url="file:E:/my_project/mybatis-study-example/src/main/resources/mapper/UserMapper.xml"/>
+    </mappers>-->
+    <!--使用映射器接口实现类的完全限定类名（class），配置Mapper文件的class值，
+    这种配置方法，要求Mapper.java文件与Mapper.xml文件打包后在同一个目录下，所以要求包名完全相同
+    比如UserMapper接口在src/main/java/mapper文件下，那么UserMapper.xml文件必须在src/main/resource/mapper文件下
+    -->
+    <mappers>
+        <mapper class="mapper.UserMapper"/>
     </mappers>
+    <!--将包内的映射器接口实现全部注册为映射器（package），只需要配置Mapper接口所在的包名即可，这种配置方法，
+    要求Mapper.java文件与Mapper.xml文件打包后在同一个目录下，所以要求包名完全相同
+    比如UserMapper接口在src/main/java/mapper文件下，那么UserMapper.xml文件必须在src/main/resource/mapper文件下
+    -->
+    <!--<mappers>
+        <package name="mapper"/>
+    </mappers>-->
 
 </configuration>
