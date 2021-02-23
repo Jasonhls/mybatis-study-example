@@ -34,6 +34,10 @@ public class ExamplePlugin implements Interceptor {
         return Plugin.wrap(o, this);
     }
 
+    /**
+     *  properties可以在mybatis的配置文件中配置插件的时候添加进去，具体见mybatis-config.xml文件
+     * @param properties
+     */
     public void setProperties(Properties properties) {
         System.out.println("setProperties：" + properties.toString());
     }
